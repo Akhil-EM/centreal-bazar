@@ -5,6 +5,7 @@ import {imageUrlBase} from '../../config';
 import OwlCarousel from 'react-owl-carousel';  
 import 'owl.carousel/dist/assets/owl.carousel.css';  
 import 'owl.carousel/dist/assets/owl.theme.default.css';  
+
 // import './owl.css';                                           
 class Home extends React.Component {
     constructor(){
@@ -30,6 +31,7 @@ class Home extends React.Component {
     componentWillMount(){
       this.fetchHomeProducts();
       this.fetchTopCategory();
+      this.fetchDealOfTheDay();
 
       if(window.screen.width<750){
         this.setState({MainBannersDisplay:'none',MobileMainBannerDisplay:''});
@@ -64,6 +66,16 @@ class Home extends React.Component {
                .then((response)=>{
                   this.setState({TopCategoryList:response.data.Data})
                   //console.log(this.state.TopCategoryList);
+               }).catch((err)=>{
+                  console.log(err)
+               })
+    }
+
+    fetchDealOfTheDay=()=>{
+      homePage.dealOfTheDay()
+               .then((response)=>{
+                 
+                  console.log(response);
                }).catch((err)=>{
                   console.log(err)
                })
@@ -137,6 +149,34 @@ class Home extends React.Component {
                  }
                  <h3>HOT DEALS</h3>
                  <hr></hr>
+                 {
+                     this.state.Promo21.length && (
+                      <div className='container-fluid' >   
+                        <OwlCarousel className='owl-theme' items={2} loop={false} margin={10} dots={false} nav={false}>
+                         {
+                           this.state.Promo21.map((item,key)=>(
+                             <div key={key} className='item text-center'>
+                                <img src={imageUrlBase+item.imageUrl}></img>
+                                <a href={item.catName}>{item.catName}</a>
+                            </div>
+                           ))
+                         }        
+                        </OwlCarousel>
+                        
+                       </div>
+                       
+                      )
+                      
+                     
+                 }
+                 <br></br>
+                 <div className="text-center">
+                    <h3 >BEST SELLERS</h3>
+                    <div className="border-container">
+                      <p className='green-border'>SO YOU GET ME TO KNOW ME BETTER</p>
+                    </div>
+                 </div>
+                 
               </div>                              
         );                                          
     }                                              

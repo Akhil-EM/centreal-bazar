@@ -7,6 +7,9 @@ class homePage{
     topCategory(){
          return http.get('category/TopCategory');
     }
+    dealOfTheDay(){
+        return http.get('DealOfDay?custId=ai6y3xy&guestId=ai6y3xy&vendorurlkey=centrealkochi')
+    }
   
 }
 
