@@ -94,7 +94,7 @@ class Home extends React.Component {
                        {
                          this.state.MainBanners.map((item,key)=>(
                            <div key={key} className='item'>
-                              <img src={imageUrlBase+item.imageUrl}></img>
+                              <img src={imageUrlBase+item.imageUrl} alt={item.elementName} ></img>
                           </div>
                          ))
                        }
@@ -114,7 +114,7 @@ class Home extends React.Component {
                          {
                            this.state.MobileMainBanners.map((item,key)=>(
                              <div key={key} className='item'>
-                                <img src={imageUrlBase+item.imageUrl}></img>
+                                <img src={imageUrlBase+item.imageUrl} alt={item.elementName} ></img>
                             </div>
                            ))
                          }
@@ -136,7 +136,7 @@ class Home extends React.Component {
                          {
                            this.state.TopCategoryList.map((item,key)=>(
                              <div key={key} className='item text-center'>
-                                <img src={imageUrlBase+item.imageUrl}></img>
+                                <img src={imageUrlBase+item.imageUrl} alt={item.elementName} ></img>
                                 <a href={item.catName}>{item.catName}</a>
                             </div>
                            ))
@@ -156,7 +156,7 @@ class Home extends React.Component {
                          {
                            this.state.Promo21.map((item,key)=>(
                              <div key={key} className='item text-center'>
-                                <img src={imageUrlBase+item.imageUrl}></img>
+                                <img src={imageUrlBase+item.imageUrl} alt={item.elementName} ></img>
                                 <a href={item.catName}>{item.catName}</a>
                             </div>
                            ))
