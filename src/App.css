@@ -1,0 +1,15 @@
+.owl-nav{
+     position:relative;
+     justify-content: space-between;
+}
+     
+
+.owl-nav span{
+    font-size:35px;
+    font-weight:45px;
+    
+}
+.image-align{
+    width: 50%;
+    margin: 0 auto;
+}

@@ -1,16 +1,66 @@
 import http from '../@axios';
 
 class homePage{
-    homeProducts(){
-        return http.get('Products/HomeProducts')
+    homeProducts(_lang,_venderUrlKey,_token){
+        return http.get('Products/HomeProducts',{
+            headers:{
+                lang:_lang,
+                vendorurlkey:_venderUrlKey,
+                token:_token
+            }
+        })
     }
-    topCategory(){
-         return http.get('category/TopCategory');
+    topCategory(_lang,_venderUrlKey,_token){
+         return http.get('category/TopCategory',{
+             headers:{
+                lang:_lang,
+                vendorurlkey:_venderUrlKey,
+                token:_token
+             }
+         });
     }
-    dealOfTheDay(){
-        return http.get('DealOfDay?custId=ai6y3xy&guestId=ai6y3xy&vendorurlkey=centrealkochi')
+
+    dealOfTheDay(_lang,_venderUrlKey,_token){
+        return http.get('DealOfDay',{
+            headers:{
+                lang:_lang,
+                vendorurlkey:_venderUrlKey,
+                token:_token
+            },
+            params:{
+                custId:'',
+                guestId:'ai6y3xy'
+            }
+        })
     }
-  
+    
+    popularProduct(_lang,_venderUrlKey,_token){
+        return http.get('PopularProduct',{
+            headers:{
+                lang:_lang,
+                vendorurlkey:_venderUrlKey,
+                token:_token
+            },
+            params:{
+                custId:'',
+                guestId:'ai6y3xy'
+            }
+        })
+    }
+    
+    BrandList(_lang,_venderUrlKey,_token){
+        return http.get('BrandList',{
+            headers:{
+                lang:_lang,
+                vendorurlkey:_venderUrlKey,
+                token:_token
+            },
+            params:{
+                custId:'',
+                guestId:'ai6y3xy'
+            }
+        })
+    }
 }
 
 
